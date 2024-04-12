@@ -4,7 +4,7 @@ import App from "./App";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <BrowserRouter>
+  <BrowserRouter basename={'/advanced-react-hooks/'}>
     <App />
   </BrowserRouter>
 );
