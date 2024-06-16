@@ -1,41 +1,14 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Box } from "@mui/material";
+import Routes from "./Routes";
+import FloatingShapes from "./theme/FloatingShapes";
 
-import Container from "@mui/material/Container";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-
-import Home from "./Home";
-import Navbar from "./Navbar";
-import UseMemoExample from "./UseMemoExample";
-import UseCallbackExample from "./UseCallbackExample";
-
-const StyledDiv = styled("div")(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  minHeight: "800px",
-  [theme.breakpoints.up("xl")]: {},
-  [theme.breakpoints.down("sm")]: {
-    minHeight: "100vh",
-  },
-}));
-
-function App() {
-  const location = useLocation();
-
-  return (
-    <Container maxWidth='xl' disableGutters>
-      <StyledDiv>
-        {location.pathname !== "/" && <Navbar />}
-        <Box sx={{ flexGrow: 1, display: "flex" }}>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/usememo' element={<UseMemoExample />} />
-            <Route path='/usecallback' element={<UseCallbackExample />} />
-          </Routes>
-        </Box>
-      </StyledDiv>
-    </Container>
-  );
-}
+const App = () => (
+  <>
+    <Box position="absolute" top={0} right={0} bottom={0} left={0}>
+      <FloatingShapes />
+    </Box>
+    <Routes />
+  </>
+);
 
 export default App;
